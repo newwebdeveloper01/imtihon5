@@ -31,7 +31,7 @@ const SingleProduct = ( ) => {
   }
 
   const dataInStore = useSelector(data => data);
-
+// console.log(dataInStore);
   return (
     <main className="single__product">
       <Container>
@@ -187,7 +187,7 @@ const SingleProduct = ( ) => {
                         >
                           Quantity:
                         </label>
-                        <div className="col-sm-2">
+                        <div className="col-sm-2 mb-3">
                           <input
                             type="text"
                             className="form-control"
@@ -197,11 +197,11 @@ const SingleProduct = ( ) => {
                         </div>
                       </div>
                       
-                     {dataInStore.like.likedProducts.find(p => p.id === data.id) ? <Button onClick={removeFromWishlist}
+                     {dataInStore.like.likedProducts.find(p => p.id === data.id) ? <Button  onClick={removeFromWishlist}
                       type="button"
-                      title="Savatga qo'shish"
+                      title="Savatga qo'shildi"
                       icon={<FiShoppingCart />}
-                    /> : <FiShoppingCart  className="main-button" onClick={addToWishlist}/>}
+                    /> : <div className="main-button button__cart " onClick={addToWishlist}><FiShoppingCart    />Savatga qo'shish</div>}
                     </form>
                   </div>
 

@@ -8,10 +8,10 @@ import {BiCartAlt} from "react-icons/bi";
 import "./Header.scss"
 import { useSelector } from "react-redux";
 const Header = () => {
-
-  const {email}=useSelector(data=>data);
-  // console.log(email);
-  const location = useLocation();
+const location = useLocation();
+  const dataInStore = useSelector(data => data);
+console.log(dataInStore);
+  
   return (
     location.pathname != "/signin" &&
     location.pathname != "/register" && (
@@ -36,7 +36,7 @@ const Header = () => {
             </ul>
             <div className="header__nav__end d-flex  ">
               <ul className="header__nav__end__list d-flex gap-4">
-                <li className="header__nav__end__list__item">{email?email:"user"}</li>
+                <li className="header__nav__end__list__item">{dataInStore.login.email}</li>
                 <li className="header__nav__end__list__item">Watchlist<GoChevronDown/></li>
                 <li className="header__nav__end__list__item">My eBay<GoChevronDown/></li>
               </ul>

@@ -20,6 +20,7 @@ const Register = () => {
   const createUser=(e)=>{
     e.preventDefault();
     instanse.post("/users",userData)
+    // .then(response=>console.log(response))
     .then(response=>{
       if(response.data.email){
         dispatch({email:response.data.email , type:"CREATE_USER"})

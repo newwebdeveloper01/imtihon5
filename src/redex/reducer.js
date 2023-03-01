@@ -1,6 +1,7 @@
 const initialState={
     email:""
 }
+
 const wishlistInitialState={
     likedProducts: []
 }

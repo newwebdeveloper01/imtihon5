@@ -3,8 +3,33 @@ import { NavLink } from "react-router-dom";
 import { ReactComponent as Logo } from "../../../assets/logo.svg";
 import { Container } from "../../../utils/Container";
 import GoogleIcon from "../../../assets/Frame.svg";
+import { instanse } from "../../../api/instanse";
+import { useNavigate } from "react-router-dom";
+
 import "./Signin.scss"
 const Signin = () => {
+  const navigate=useNavigate();
+
+  const [userData , setUserData]=useState({
+    email:"",
+    password:""
+  });
+  console.log(userData);
+  const createUser=(e)=>{
+    e.preventDefault();
+    instanse.post("/auth/login",userData)
+    .then(response=>//console.log(response))
+      {
+      if(response=true){
+        navigate("/")
+      }
+
+    }
+    )
+    .catch(err=>console.log(err))
+
+  }
+
   return (
     <main>
     <Container>
@@ -19,28 +44,43 @@ const Signin = () => {
         <p className="d-flex justify-content-center pt-5">
         Sign in to eBay or  <NavLink  className="ms-2" to="/register"> create an account </NavLink>
           </p>
-        <div className="sign__form d-flex  align-items-center justify-content-center">
-          <form className="formm" >
-           
+        <div className="sign__form d-flex mt-3 align-items-center justify-content-center">
+          <form className="formm pt-3" onSubmit={createUser} >
             <div className="form-row  gap-4 form__sign">
               <div className="form-group  col-12">
                 <input
-                  type="text"
-                  className="form-control"
-                  id="inputAddress"
+                  type="email"
+                  className="form-control mb-4"
+                  // id="inputAddress"
                   placeholder="Email or username"
-                  //onChange={e =>{setUserData({...userData ,name:e.target.value})}} //onSubmit={createUser}
+                  // onSubmit={createUser}
+                  onChange={e =>{setUserData({...userData ,email:e.target.value})}} 
+                />
+                  
+              </div>
+             
+            </div>
+            <div className="form-row  gap-4 form__sign">
+              <div className="form-group  col-12">
+                <input
+                  type="password"
+                  className="form-control mb-4"
+                  // id="inputAddress"
+                  placeholder="Email or username"
+                    // onSubmit={createUser} 
+                  onChange={e =>{setUserData({...userData ,password:e.target.value})}} 
+                
                 />
               </div>
              
             </div>
            
             <p className="form_p ">Created your account with a mobile number?  <a href="/" className=""> Sign in with mobile</a></p>
-            <button type="submit" className="btn w-100 mt-3 btn-primary">
+            <button type="submit" className="btn w-100 mt-3 btn-primary"  >
             Continue
             </button>
           </form>
-          <button  className="google__sign d-flex align-items-center">
+          <button  className="google__sign d-flex align-items-center" >
             {/* onClick={createUserGoogle} */}
             <img src={GoogleIcon} alt="" />
             <p>Continue with Google</p>
@@ -48,7 +88,7 @@ const Signin = () => {
         </div>
       </div>
 
-      <div className="footerrr mt-auto">
+      <div className="footerr mt-auto">
         
         <p>Copyright © 1995-2023 eBay Inc. All Rights Reserved.
 Accessibility
