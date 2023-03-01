@@ -1,0 +1,39 @@
+.discounts__wrapper{
+    &__list{
+        list-style: none;
+
+        &__item{
+            &:hover{
+                border-bottom: 1px solid #222;
+            }
+            & > a{
+                display: flex;
+                padding: 15px 0px;
+                text-decoration: none;
+                color: #555555;
+
+            }
+            
+        }
+    }
+    &__info{
+        padding: 15px 32px;
+        background: #FEB786;
+
+        div {color: #5C1B05;align-items: center;
+            h3 {
+font-size: 36px;
+width: 291.48px;
+line-height: 47px;
+display: flex;
+
+
+            }
+            p{
+                font-size: 17px;
+line-height: 22px;
+margin-bottom: 24px;
+            }
+        }
+    }
+}
