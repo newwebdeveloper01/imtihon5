@@ -3,7 +3,7 @@ import Header from "../components/header/Header.jsx"
 import Footer from "../components/footer/Footer.jsx"
 import { Route, Routes } from 'react-router-dom'
 import Home from "./home/Home.jsx"
-// import Plp from "./plp/Plp.jsx"
+import Plp from "./plp/Plp.jsx"
 import SingleProduct from './pdp/SingleProduct.jsx'
 import Search from '../routes/search/Search'
 import Register from './auth/register/Register.jsx'
@@ -19,7 +19,7 @@ function AllRoutes() {
 
         <Routes>
           <Route path='/' element={<Home/>}  />
-          {/* <Route path='/plp' element={<Plp/>}  /> */}
+          <Route path='/plp' element={<Plp/>}  />
           <Route path='/product/:id' element={<SingleProduct/>}  />
           <Route path='/wishtlist' element={ <Wishtlist/> }  />
           <Route path='/search/:productTitle' element={<Search/>}  />
