@@ -5,7 +5,7 @@ import Product from "../project/ProductPLP.jsx"
 import "./Product__plp.scss"
 const Product__plp = () => {
     const [data , isLoding]=useFetchData("/products?offset=1&limit=20")
-    console.log(data);
+    // console.log(data);
   return (
     <section className="main__products">
         <Container>

@@ -10,7 +10,7 @@ import { useSelector } from "react-redux";
 const Header = () => {
 
   const {email}=useSelector(data=>data);
-  console.log(email);
+  // console.log(email);
   const location = useLocation();
   return (
     location.pathname != "/signin" &&
